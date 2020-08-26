@@ -18,7 +18,11 @@ function drawGrid(percentage, cellPadding, color, trans1, trans2){
 
   const bandScale = d3.scaleBand()
                       .domain([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-                      .range([0, width])
+                      .range([0, width]);
+
+  const bandRow = d3.scaleBand()
+                      .domain([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].reverse())
+                      .range([0, height]);
 
   const svgG = d3.select('svg.svgGrid')
                   .append('g')
@@ -30,7 +34,7 @@ function drawGrid(percentage, cellPadding, color, trans1, trans2){
       .append('rect')
       .classed('cell', true)
       .attr('x', d => bandScale(d.row))
-      .attr('y', d => bandScale(d.column))
+      .attr('y', d => bandRow(d.column))
       .attr('width', cellWidth - cellPadding)
       .attr('height', cellHeight - cellPadding)
       .style('fill', color.bG);

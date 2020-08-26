@@ -6,13 +6,18 @@
   <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
   <style media="screen">
     div.svgGridContain {
-      width: 10%;
+      width: 20%;
+    }
+
+    rect {
+      mask: url(#mask-stripe)
     }
   </style>
 </head>
 <body>
   <div class="svgGridContain">
-    <svg class ="svgGrid" viewBox = "0 0 400 400"></svg>
+    <svg class ="svgGrid" viewBox = "0 0 400 400">
+    </svg>
   </div>
   <script src="index.js"></script>
 </body>
